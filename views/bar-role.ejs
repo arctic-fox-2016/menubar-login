@@ -1,0 +1,40 @@
+<html>
+<head>
+  <% include ./head %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <% include ./nav-header%>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+
+          <% switch(session.role) {
+            case 'superadmin': %>
+                <li><a href="#">Add User</a></li>
+          <%        break;
+              case 'user': %>
+                <li><a href="#">User Area</a></li>
+          <%        break;
+              default:
+           }; %>
+          <li><a href="/logout">Logout</a></li>
+
+
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class = "jumbotron">
+    <center>
+      <h1>Welcome, <%= session.username %></h1>
+      <h3>you are <%= session.role %></h3>
+    </center>
+  </div>
+
+</body>
+
+
+</html>
