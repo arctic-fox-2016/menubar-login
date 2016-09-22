@@ -4,6 +4,9 @@ let model = require('../models/index')
 
 
 router.get('/',function(req,res,next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   if(req.session.role == "admin"){
     res.redirect('/admin')
   } else if(req.session.role == "user"){
@@ -16,6 +19,9 @@ router.get('/',function(req,res,next){
 })
 
 router.get('/admin',function(req,res,next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   if (req.session.role){
     res.render('admin.ejs', {name: req.session.user, role: req.session.role})
   } else {
@@ -24,6 +30,9 @@ router.get('/admin',function(req,res,next){
 })
 
 router.get('/user',function(req,res,next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   if (req.session.role){
     res.render('user.ejs', {name: req.session.user, role: req.session.role})
   } else {
@@ -32,6 +41,9 @@ router.get('/user',function(req,res,next){
 })
 
 router.get('/super-user',function(req,res,next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   if (req.session.role){
     res.render('super-user.ejs', {name: req.session.user, role: req.session.role})
   } else {
@@ -41,11 +53,17 @@ router.get('/super-user',function(req,res,next){
 
 
 router.post('/logout',function(req,res,next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   req.session.destroy()
   res.render('logout.ejs')
 })
 
 router.post('/authentication',function(req, res, next){
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
   model.login.findAll().then(function(result){
     for(let i in result){
       if (req.body.username==result[i].username && req.body.password==result[i].password){
