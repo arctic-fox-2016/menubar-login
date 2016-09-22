@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<head>
+  <%- include bootstrap.ejs %>
+</head>
+<body>
+  <p>You are a super user</p>
+  <p>Your name: <%= name %></p>
+  <p>Your role: <%= role %></p>
+<form action="/logout" method="POST">
+  <input class="btn btn-info" type = "submit" value="logout">
+</form>
+<%- include footer.ejs %>
+</body>
+</html>

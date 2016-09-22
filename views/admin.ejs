@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<head>
+  <%- include bootstrap.ejs %>
+</head>
+<body>
+  <p>You are an admin</p>
+  <p>Your name: <%= name %></p>
+  <p>Your role: <%= role %></p>
+
+  <form action="/logout" method="POST">
+    <input class="btn btn-danger" type = "submit" value="logout">
+  </form>
+<%- include footer.ejs %>
+</body>
+</html>
