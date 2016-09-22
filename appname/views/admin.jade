@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  nav#mainNav.navbar.navbar-default.navbar-fixed-top.navbar-custom
+    .container
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |  Menu
+          i.fa.fa-bars
+        center
+          a.navbar-brand(href='#page-top') Admin : #{username}
+
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+  header
+    .container
+      .row
+        center
+          h4 Mencoba Session dengan Express
+          span.skills Express is fun
+              .form
+                form(action='/logout', method='get')
+                  button(type='submit') logout
+                  p.message
