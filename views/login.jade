@@ -1,0 +1,26 @@
+extends layout
+
+
+block header
+  .container-fluid
+    .jumbotron
+    h1 Ahmadi Homepage!
+    p Please login to know me more
+    p
+      a.btn.btn-primary.btn-lg(href='#', role='button') Learn more
+
+
+block content
+  .container-fluid
+    form(action='/login', method='GET')
+    .form-group
+      label(for='exampleInputEmail1') Email address
+      input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+    .form-group
+      label(for='exampleInputPassword1') Password
+      input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+    .checkbox
+      label
+        input(type='checkbox')
+        |  save password
+    button.btn.btn-default(type='submit') Submit
